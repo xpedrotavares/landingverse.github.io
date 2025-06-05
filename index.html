@@ -1,59 +1,199 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Em Construção</title>
+    <title>LandingVerse - Criação de Sites Profissionais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            color: #333;
-            text-align: center;
-            flex-direction: column; /* Para alinhar o conteúdo verticalmente */
-            padding: 20px; /* Um pouco de padding para telas pequenas */
+            font-family: 'Inter', sans-serif;
+            @apply antialiased bg-white text-gray-800;
         }
-        h1 {
-            font-size: 2.5em;
-            color: #0056b3;
-            margin-bottom: 20px;
+        .section-title {
+            @apply text-4xl md:text-5xl font-extrabold text-center mb-5 text-gray-900;
         }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 10px;
+        .section-subtitle {
+            @apply text-lg md:text-xl text-center text-gray-600 mb-12 md:mb-16 max-w-2xl mx-auto;
         }
-        a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
+        .service-card {
+            @apply bg-slate-50 rounded-xl p-8 transition-all duration-300 hover:shadow-xl border border-slate-200 flex flex-col items-center text-center;
         }
-        a:hover {
-            text-decoration: underline;
+        .cta-button {
+            @apply px-8 py-4 bg-indigo-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 ease-in-out transform hover:scale-105;
         }
-        .cnpj {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #666;
+        .nav-link {
+            @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 transition-colors;
         }
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            p {
-                font-size: 1em;
-            }
+        .nav-link-mobile {
+            @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-100 hover:text-indigo-600 transition-colors;
+        }
+        .sticky-nav {
+            @apply sticky top-0 z-50 transition-all duration-300;
+        }
+        .navbar-solid {
+            @apply bg-white shadow-lg;
+        }
+        .navbar-transparent {
+            @apply bg-transparent shadow-none;
         }
     </style>
 </head>
-<body>
-    <h1>Estamos em construção, voltamos já!</h1>
-    <p>Para entrar em contato:</p>
-    <p>WhatsApp: <a href="https://wa.me/5561985253238" target="_blank">(61) 98525-3238</a></p>
-    <p class="cnpj">CNPJ: 53.206.312/0001-12</p>
+<body class="bg-white">
+
+    <nav class="sticky-nav navbar-transparent" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="text-gray-900 font-bold text-2xl">
+                        LandingVerse
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#sobre" class="nav-link">Sobre</a>
+                        <a href="#servicos" class="nav-link">Serviços</a>
+                        <a href="#contato" class="nav-link">Contato</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menu principal</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#sobre" class="nav-link-mobile">Sobre</a>
+                <a href="#servicos" class="nav-link-mobile">Serviços</a>
+                <a href="#contato" class="nav-link-mobile">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white pt-20 pb-24 md:pt-32 md:pb-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-gray-900 leading-tight">
+                Sites incríveis, <span class="text-indigo-600">sem complicação.</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-gray-600">
+                A LandingVerse cria landing pages e sites de alta performance em React e Webflow, focados em converter e encantar seus clientes.
+            </p>
+            <a href="#servicos" class="cta-button">
+                Conheça Nossas Soluções
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="sobre" class="py-20 md:py-28 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Por que escolher a LandingVerse?</h2>
+                    <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+                        <p>Na LandingVerse, unimos design de ponta com as tecnologias mais modernas para criar experiências digitais que geram resultados reais. Não se trata apenas de um site bonito, mas de uma ferramenta poderosa para o seu negócio.</p>
+                        <p>Nosso processo é transparente e colaborativo. Entendemos suas metas para entregar soluções personalizadas, seja uma aplicação robusta em <strong class="font-semibold text-indigo-600">React</strong> ou um site visualmente deslumbrante e fácil de gerenciar em <strong class="font-semibold text-purple-600">Webflow</strong>.</p>
+                         <p>Foco no cliente, paixão por inovação e compromisso com a excelência. É assim que transformamos sua visão em realidade digital.</p>
+                         <a href="#contato" class="inline-block mt-6 px-7 py-3 bg-gray-800 text-white font-semibold rounded-lg shadow-md hover:bg-gray-900 transition-colors duration-300 transform hover:scale-105">
+                            Vamos Conversar Sobre Seu Projeto
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Nossas Especialidades</h2>
+                <p class="section-subtitle">Desenvolvemos soluções web que impulsionam o seu negócio, utilizando as melhores tecnologias do mercado.</p>
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+                    <div class="service-card">
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800 mt-6">Desenvolvimento React</h3>
+                        <p class="text-gray-600 leading-relaxed">Aplicações web interativas, rápidas e escaláveis. Ideal para SPAs, painéis complexos e landing pages dinâmicas com foco em performance e UX.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800 mt-6">Desenvolvimento Webflow</h3>
+                        <p class="text-gray-600 leading-relaxed">Sites visualmente impactantes, 100% responsivos e com CMS intuitivo. Perfeito para design sofisticado, animações e autonomia na gestão de conteúdo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-20 md:py-28 bg-indigo-600 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Vamos dar o próximo passo?</h2>
+                <p class="max-w-xl mx-auto text-lg md:text-xl mb-10 text-indigo-100">
+                    Sua ideia merece uma presença online incrível. Fale com a LandingVerse hoje mesmo.
+                </p>
+                <a href="mailto:Pedrotavares@landingverse.com.br" class="px-10 py-4 bg-white text-indigo-600 text-lg font-semibold rounded-lg shadow-md hover:bg-slate-100 transition-all duration-300 ease-in-out transform hover:scale-105 mb-6 inline-block">
+                    Enviar E-mail
+                </a>
+                <p class="text-lg text-indigo-100">Ou ligue: <a href="tel:61985253238" class="font-semibold text-white hover:underline">(61) 98525-3238</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-16">
+        <div class="container mx-auto px-6 text-center">
+            <a href="#" class="text-white font-bold text-xl mb-4 inline-block">LandingVerse</a>
+            <div class="space-y-2 mb-4 text-sm">
+                <p><a href="mailto:Pedrotavares@landingverse.com.br" class="hover:text-indigo-400 transition-colors">Pedrotavares@landingverse.com.br</a></p>
+                <p><a href="tel:61985253238" class="hover:text-indigo-400 transition-colors">(61) 98525-3238</a></p>
+                <p>CNPJ: 53.206.312/0001-12</p>
+            </div>
+            <p class="text-xs text-slate-500">&copy; <span id="currentYear"></span> LandingVerse. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a, #navbar a[href^="#"]');
+        const navbar = document.getElementById('navbar');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.querySelectorAll('svg').forEach(icon => icon.classList.toggle('hidden'));
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.querySelectorAll('svg').forEach(icon => icon.classList.toggle('hidden'));
+                }
+            });
+        });
+        
+        const changeNavbarStyle = () => {
+            if (window.pageYOffset > 50) {
+                navbar.classList.remove('navbar-transparent');
+                navbar.classList.add('navbar-solid');
+                navbar.querySelector('a').classList.remove('text-gray-900');
+                navbar.querySelector('a').classList.add('text-gray-900');
+            } else {
+                navbar.classList.remove('navbar-solid');
+                navbar.classList.add('navbar-transparent');
+                navbar.querySelector('a').classList.remove('text-gray-900');
+                navbar.querySelector('a').classList.add('text-gray-900');
+            }
+        };
+        window.addEventListener('scroll', changeNavbarStyle);
+        changeNavbarStyle();
+    </script>
+
 </body>
 </html>
